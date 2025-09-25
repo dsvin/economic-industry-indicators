@@ -1,0 +1,7 @@
+dash
+pandas
+fredapi
+numpy
+plotly
+requests
+matplotlib

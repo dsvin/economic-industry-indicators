@@ -1,0 +1,37 @@
+Level,Measure,FRED API Code
+0,Total Manufacturing,AMTMNO
+1,Durable Goods,DGORDER
+2,Primary Metals,A31SNO
+3,Iron and Steel Mills and Ferroalloy and Steel Product Manufacturing,A31ANO
+3,Aluminum and Nonferrous Metal Products,AANMNO
+3,Ferrous Metal Foundries,A31CNO
+2,Fabricated Metal Products,A32SNO
+2,Machinery,A33SNO
+3,Farm Machinery and Equipment Manufacturing,A33ATI
+3,Construction Machinery Manufacturing,A33CNO
+3,"Mining, Oil, and Gas Field Machinery Manufacturing",A33DNO
+3,Industrial Machinery Manufacturing,A33ENO
+3,Photographic Equipment Manufacturing,A33GNO
+3,"Ventilation, Heating, Air-conditioning, and Refrigeration Equipment Manufacturing",A33HNO
+3,Metalworking Machinery Manufacturing,A33INO
+3,"Turbines, Generators, and Other Power Transmission Equipment",ATGPNO
+3,Material Handling Equipment Manufacturing,A33MNO
+2,Computer and Electronic Products,A34SNO
+3,Electronic Computer Manufacturing,A34ANO
+3,"Communications Equipment Manufacturing, Nondefense",A34DNO
+3,"Communications Equipment Manufacturing, Defense",A34ENO
+3,Other Electronic Component Manufacturing,A34HNO
+3,"Search and Navigation Equipment, Nondefense",A34INO
+3,"Search and Navigation Equipment, Defense",A34JNO
+3,"Electromedical, Measuring, and Control Instrument Manufacturing",A34KNO
+2,"Electrical Equipment, Appliances and Components",A35SNO
+3,Electric Lighting Equipment Manufacturing,A35ANO
+3,Household Appliance Manufacturing,A35BNO
+3,Electrical Equipment Manufacturing,A35CNO
+2,Transportation Equipment,A36SNO
+3,"Motor Vehicle Bodies, Trailers, and Parts",ABTPNO
+3,Nondefense Aircraft and Parts,ANAPNO
+3,Defense Aircraft and Parts,ADAPNO
+3,Ships and Boats,A36ZNO
+2,Furniture and Related Products,A37SNO
+1,Nondurable Goods,AMNMNO

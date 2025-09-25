@@ -1,0 +1,11 @@
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+
+# Log files
+*.log
+
+# Ignore every config.json in any folder
+**/config.json

@@ -1,0 +1,37 @@
+Level,Measure,FRED API Code
+0,Total Manufacturing,AMTMTI
+1,Durable Goods,AMDMTI
+2,Primary Metals,A31STI
+3,Iron and Steel Mills and Ferroalloy and Steel Product Manufacturing,A31ATI
+3,Aluminum and Nonferrous Metal Products,AANMTI
+3,Ferrous Metal Foundries,A31CTI
+2,Fabricated Metal Products,A32STI
+2,Machinery,A33STI
+3,Farm Machinery and Equipment Manufacturing,A33ATI
+3,Construction Machinery Manufacturing,A33CTI
+3,"Mining, Oil, and Gas Field Machinery Manufacturing",A33DTI
+3,Industrial Machinery Manufacturing,A33ETI
+3,Photographic Equipment Manufacturing,A33GTI
+3,"Ventilation, Heating, Air-conditioning, and Refrigeration Equipment Manufacturing",A33HTI
+3,Metalworking Machinery Manufacturing,A33ITI
+3,"Turbines, Generators, and Other Power Transmission Equipment",ATGPTI
+3,Material Handling Equipment Manufacturing,A33MTI
+2,Computer and Electronic Products,A34STI
+3,Electronic Computer Manufacturing,A34ATI
+3,"Communications Equipment Manufacturing, Nondefense",A34DTI
+3,"Communications Equipment Manufacturing, Defense",A34ETI
+3,Other Electronic Component Manufacturing,A34HTI
+3,"Search and Navigation Equipment, Nondefense",A34ITI
+3,"Search and Navigation Equipment, Defense",A34JTI
+3,"Electromedical, Measuring, and Control Instrument Manufacturing",A34KTI
+2,"Electrical Equipment, Appliances and Components",A35STI
+3,Electric Lighting Equipment Manufacturing,A35ATI
+3,Household Appliance Manufacturing,A35BTI
+3,Electrical Equipment Manufacturing,A35CTI
+2,Transportation Equipment,A36STI
+3,"Motor Vehicle Bodies, Trailers, and Parts",ABTPTI
+3,Nondefense Aircraft and Parts,ANAPTI
+3,Defense Aircraft and Parts,ADAPTI
+3,Ships and Boats,A36ZTI
+2,Furniture and Related Products,A37STI
+1,Nondurable Goods,AMNMTI

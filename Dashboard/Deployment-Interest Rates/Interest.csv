@@ -1,0 +1,7 @@
+Level ,Measure,FRED API CODE
+0,Secured Overnight Financing Rate,SOFR
+1,Secured Overnight Financing Rate: 1st Percentile,SOFR1
+1,Secured Overnight Financing Rate: 99th Percentile,SOFR99
+1,Secured Overnight Financing Rate: 75th Percentile ,SOFR75
+1,Secured Overnight Financing Rate: 25th Percentile,SOFR25
+0,Secured Overnight Financing Volume,SOFRVOL
