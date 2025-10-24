@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 #Importing required libraries
@@ -20,7 +20,7 @@ with open("config.json") as f:
     config = json.load(f)
 
 
-# In[3]:
+# In[2]:
 
 
 plt.style.use('fivethirtyeight')
@@ -55,7 +55,7 @@ pd.set_option('display.expand_frame_repr', False)
 pd.set_option('display.max_columns', None)
 
 
-# In[4]:
+# In[3]:
 
 
 # Creating FRED object:
@@ -66,7 +66,7 @@ def series(series_id):
     return fred.get_series(series_id)
 
 
-# In[5]:
+# In[4]:
 
 
 #Creating a function that does data cleaning on the Series provided given the code
@@ -92,7 +92,7 @@ def data_cleaning(code):
     return data
 
 
-# In[6]:
+# In[5]:
 
 
 #Reading CSV file: 
@@ -116,35 +116,34 @@ for i in range(0,len(twoAPI)):
     twoData.append(go.Scatter(x=xy['Date'],y=xy['Value'],name=twoMeasure[i]))
 
 
-# In[7]:
+# In[6]:
 
 
 #Total manufacturing graph
 trace1 = go.Scatter(x=TM['Date'],y=TM['Value'],name='Total Manufacturing')
 figTM = go.Figure(data=[trace1])
-figTM = figTM.update_layout(xaxis_rangeslider_visible=True)
+figTM = figTM.update_layout(xaxis_rangeslider_visible=True, xaxis_title='Date', yaxis_title='Value', title="Total Inventories")
 
 #Durable and Non-durable Goods (Level 1)
 
 graphDurableNon = go.Scatter(x=nonDurable['Date'],y=nonDurable['Value'],name='Non-Durable Goods')
 graphDurable = go.Scatter(x=Durable['Date'],y=Durable['Value'],name = 'Durable Goods')
 figDND = go.Figure(data=[graphDurableNon, graphDurable])
-figDND = figDND.update_layout(xaxis_rangeslider_visible=True)
+figDND = figDND.update_layout(xaxis_rangeslider_visible=True, xaxis_title='Date', yaxis_title='Value', title="Durable and Non-Durable")
 
 
 #Durable Goods all Subcomponents Graph: 
 twoGraph = go.Figure(data=twoData)
-twoGraph = twoGraph.update_layout(xaxis_rangeslider_visible=True)
+twoGraph = twoGraph.update_layout(xaxis_rangeslider_visible=True, xaxis_title='Date', yaxis_title='Value', title="Durable Inventories Subcomponents")
 
 #
 
 
-# In[10]:
+# In[13]:
 
 
 # starting the Dash application: 
 app = dash.Dash(__name__)
-server = app.server
 
 app.layout = html.Div(children=[
     html.H1(children='Dashboard for Inventories'),
@@ -172,7 +171,8 @@ app.layout = html.Div(children=[
 )
 def update_graph(select):
     if select == 'TMS':
-        return (dcc.Graph(figure=figDND),
+        return (html.Div([dcc.Graph(figure=figDND),html.Div("📈 Despite overlap/occasional converging of durable and non-durable goods when it comes to the amount of orders, There is no overlap here showing that the durable inventory in terms of value is generally higher than non-durable goods", 
+             style={"backgroundColor": "#e7f5ff", "padding": "8px", "borderRadius": "8px", "marginBottom": "6px"})]),
                 dcc.Dropdown(id='dropdown_2', options = [
                     {'label':'Non-Durable Goods','value':'NDG'},
                     {'label':'Durable Goods','value':'DG'}
@@ -188,10 +188,13 @@ def update_graph(select):
 def update_graph2(choose):
     if choose =='NDG':
         chosen = go.Figure(data=[graphDurableNon])
-        chosen = chosen.update_layout(xaxis_rangeslider_visible=True)
+        chosen = chosen.update_layout(xaxis_rangeslider_visible=True, xaxis_title='Date', yaxis_title='Value', title="Non-Durable Inventories")
         return dcc.Graph(figure=chosen)
     elif choose == 'DG':
-        return dcc.Graph(figure= twoGraph)
+        return dcc.Graph(figure= twoGraph), html.Div([
+    html.Div("📈 We can see that transportation equipment has increased uniformly, to accomodate for the recent sudden increases in New Orders.  ", 
+             style={"backgroundColor": "#E97451", "padding": "8px", "borderRadius": "8px", "marginBottom": "6px"})
+])
     else:
         return html.Div()
 
@@ -201,5 +204,8 @@ if __name__ == '__main__':
 
 
 
-# In[ ]:
+# In[11]:
+
+
+get_ipython().system('python -m jupyter nbconvert --to script "Inventories.ipynb"')
 

@@ -5,7 +5,6 @@
 
 
 #Importing required libraries
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -16,16 +15,12 @@ import plotly.graph_objects as go
 import dash
 from dash import html, dcc, Input, Output, callback
 import json
-import os
-
-
-
 
 with open("config.json") as f:
     config = json.load(f)
 
 
-# In[7]:
+# In[2]:
 
 
 plt.style.use('fivethirtyeight')
@@ -60,7 +55,7 @@ pd.set_option('display.expand_frame_repr', False)
 pd.set_option('display.max_columns', None)
 
 
-# In[6]:
+# In[3]:
 
 
 # Creating FRED object:
@@ -71,7 +66,7 @@ def series(series_id):
     return fred.get_series(series_id)
 
 
-# In[5]:
+# In[4]:
 
 
 #Creating a function that does data cleaning on the Series provided given the code
@@ -97,7 +92,7 @@ def data_cleaning(code):
     return data
 
 
-# In[9]:
+# In[5]:
 
 
 #Reading CSV file: 
@@ -121,35 +116,34 @@ for i in range(0,len(twoAPI)):
     twoData.append(go.Scatter(x=xy['Date'],y=xy['Value'],name=twoMeasure[i]))
 
 
-# In[10]:
+# In[6]:
 
 
 #Total manufacturing graph
 trace1 = go.Scatter(x=TM['Date'],y=TM['Value'],name='Total Manufacturing')
 figTM = go.Figure(data=[trace1])
-figTM = figTM.update_layout(xaxis_rangeslider_visible=True)
+figTM = figTM.update_layout(xaxis_rangeslider_visible=True, xaxis_title='Date', yaxis_title='Value', title="Manufacturing New Orders")
 
 #Durable and Non-durable Goods (Level 1)
 
 graphDurableNon = go.Scatter(x=nonDurable['Date'],y=nonDurable['Value'],name='Non-Durable Goods')
 graphDurable = go.Scatter(x=Durable['Date'],y=Durable['Value'],name = 'Durable Goods')
 figDND = go.Figure(data=[graphDurableNon, graphDurable])
-figDND = figDND.update_layout(xaxis_rangeslider_visible=True)
+figDND = figDND.update_layout(xaxis_rangeslider_visible=True,xaxis_title='Date', yaxis_title='Value', title="Durable and Non-Durable Aggregate")
 
 
 #Durable Goods all Subcomponents Graph: 
 twoGraph = go.Figure(data=twoData)
-twoGraph = twoGraph.update_layout(xaxis_rangeslider_visible=True)
+twoGraph = twoGraph.update_layout(xaxis_rangeslider_visible=True,xaxis_title='Date', yaxis_title='Value', title="Durable Subcomponents")
 
 #
 
 
-# In[11]:
+# In[7]:
 
 
 # starting the Dash application: 
 app = dash.Dash(__name__)
-server = app.server
 
 app.layout = html.Div(children=[
     html.H1(children='Dashboard for New Orders'),
@@ -177,7 +171,12 @@ app.layout = html.Div(children=[
 )
 def update_graph(select):
     if select == 'TMS':
-        return (dcc.Graph(figure=figDND),
+        return (html.Div([dcc.Graph(figure=figDND), html.Div([
+            html.Div("During the financial crises of 2008, the demand for durable goods shrunk by about 40% going lower than non-durables, indicating that consumers prefferred more essential/low-cost goods compared to long term purchases. Same goes for covid", 
+             style={"backgroundColor": "#e7f5ff", "padding": "8px", "borderRadius": "8px", "marginBottom": "6px"}),
+    html.Div("⚠️Just from looking at the crossover of 2014 alone, it can be inferred that it took around 5 years for the market to recover where demand for durable and non durable goods would eventually converge", 
+             style={"backgroundColor": "#fff3cd", "padding": "8px", "borderRadius": "8px"})
+        ])]),
                 dcc.Dropdown(id='dropdown_2', options = [
                     {'label':'Non-Durable Goods','value':'NDG'},
                     {'label':'Durable Goods','value':'DG'}
@@ -193,21 +192,27 @@ def update_graph(select):
 def update_graph2(choose):
     if choose =='NDG':
         chosen = go.Figure(data=[graphDurableNon])
-        chosen = chosen.update_layout(xaxis_rangeslider_visible=True)
+        chosen = chosen.update_layout(xaxis_rangeslider_visible=True,xaxis_title='Date', yaxis_title='Value', title="Non-Durable Goods")
         return dcc.Graph(figure=chosen)
     elif choose == 'DG':
-        return dcc.Graph(figure= twoGraph)
+        return html.Div([dcc.Graph(figure= twoGraph),html.Div([
+            html.Div("🚗 The spike in transportation equipment orders in 2014 is what created that massive spike in demand for overall durable goods, showing a sign of recovery and the return to globalization from the US. We can see another spike in 2025 due to the dramatic surge in aircraft orders", 
+             style={"backgroundColor": "#e7f5ff", "padding": "8px", "borderRadius": "8px", "marginBottom": "6px"}),
+    html.Div("Over time, the order value for Computers and Electronic products have declined with order values falling below Machinery and Fabricated metals. This indicates that manufacturers have innovated their processes to make these technologies much cheaper and more accessible.", 
+             style={"backgroundColor": "#fff3cd", "padding": "8px", "borderRadius": "8px"})
+            
+        ])])
     else:
         return html.Div()
 
 #Run Web application
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT",8050))
-    app.run(host="0.0.0.0", port=port)
+    app.run(debug=True)
 
 
 
-# In[ ]:
+# In[12]:
 
 
+get_ipython().system('python -m jupyter nbconvert --to script "New Orders.ipynb"')
 
