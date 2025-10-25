@@ -19,7 +19,8 @@ Together, these indicators help businesses and analysts anticipate risks and opp
 - Plotly Dash (interactive dashboards+ Graphing)  
 - JupyterLab
 - FRED API/json for economic data  
-
+## Essentials_methods_variables.py
+This is simply a local python package I made for data cleaning and graphing methods along with several other variables designed to make building dashboards from FRED more streamlined. 
 ## Repo Structure
 project-root/
 │── data-tickers/ # CSV files of data tickers which are then used to extract data from FredAPI (Inventories, New Orders, Interest)
@@ -68,8 +69,8 @@ Here, you have a dropdown with four choices:
 - The first choice lets you see how Total Manufacturing New Orders and Total Inventories in the US correlate with each other
 - The second choice lets you see how New Orders and Inventories for Durable and Non-Durable Goods correlate with each other
 - The third choice lets you see how each sector of the Durable goods (for both inventories and new orders) correlate with each other.
-- The last option allows you to pick and choose which metrics you want to see from any of the three levels listed above, allowing you to pick the metrics which may be the most important for your use case.
+- The last option allows you to pick and choose which metrics you want to see/measure correlations with from any of the three levels listed above and also the Secured Overnight Financing rate along with the SOFR volume, allowing you to pick the metrics which may be the most important for your use case.
 
 
 ## Underlying 
-I truly believe that this data and this mini project done here is the first step to quantifying market demand. I think that this is a small step towards not just understanding how different business are interlaced with each other but this can also give us a feel in terms of how business cycles work. 
+I truly believe that this data and this mini project done here is the first step to quantifying market demand across various goods. I think that this is a small step towards not just understanding how different business are interlaced with each other but this can also give us a feel in terms of how business cycles work. 

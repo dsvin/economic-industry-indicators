@@ -53,7 +53,7 @@ def data_cleaning(code):
 
 #Building functions to convert a table into graphs :))
 def grapher(var):
-    API = var['FRED API CODE'].tolist()
+    API = var['FRED API Code'].tolist()
     Measure = var['Measure'].tolist()
     data1 = []
     for i in range(0,len(API)):
@@ -64,7 +64,7 @@ def grapher(var):
     return graph
 
 def grapher1(var1):
-    API = var1['FRED API CODE']
+    API = var1['FRED API Code']
     Measure = var1['Measure']
     clean = data_cleaning(API)
     data11 = go.Scatter(x= clean['Date'],y=clean['Value'],name=Measure)
