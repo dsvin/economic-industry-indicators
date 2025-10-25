@@ -71,6 +71,7 @@ Here, you have a dropdown with four choices:
 - The third choice lets you see how each sector of the Durable goods (for both inventories and new orders) correlate with each other.
 - The last option allows you to pick and choose which metrics you want to see/measure correlations with from any of the three levels listed above and also the Secured Overnight Financing rate along with the SOFR volume, allowing you to pick the metrics which may be the most important for your use case.
 
+For the custom correlation matrix, users are able to select which variables to include in the correlation matrix to explore how production behaviour evolve over time along with changes in monetary policy
 
 ## Underlying 
 I truly believe that this data and this mini project done here is the first step to quantifying market demand across various goods. I think that this is a small step towards not just understanding how different business are interlaced with each other but this can also give us a feel in terms of how business cycles work. 
