@@ -1,5 +1,12 @@
 # 📊 Economic & Industry Dashboard
+No need to look at the files unless you want to. You can view the deployed dashboards below:
+https://deploy-new-order-3.onrender.com
+https://deploy-inventories.onrender.com
+https://deploy-interest.onrender.com
 
+https://deploy-interactive-correlation.onrender.com
+
+For more explanation on what these are about and how to use them, keep reading:)
 ## Overview
 This project explores how **industry-level inventories, and new orders** interact to reveal signals about the business cycle.  
 
@@ -30,17 +37,6 @@ project-root/
 │ ├── New Orders.ipynb
 │ ├── Interest Rates.ipynb
 │ └── New Orders till L3.ipynb
-│
-│── Dashboard/ # Dash app files for deployment
-│ ├── Deployment-Inventories/
-│ │ └── app.py
-│ ├── Deployment-New Orders/
-│ │ └── app.py
-│ ├── Deployment-Interest Rates/
-│ │ └── app.py
-│ └── combined-app/ 
-│ └── app.py
-│
 │── requirements.txt # dependencies
 │── config.json # (ignored in GitHub for security)
 │── README.md # project overview
@@ -49,7 +45,13 @@ project-root/
 ## How to Run
 There is no need to clone the repo since I have deployed the programs onto Render. Simply use the following links to get to the dashboard that you want. 
 
-The first three interactive dashboards plot New Orders, Inventories, and Interest rates related to the secured overnight financing rate respectively. The final interactive dashboard allows you to see correlations across these metrics and allows you to generate your own correlation matrices with the key indicators of your choice. 
+The first three interactive dashboards plot New Orders, Inventories, and Interest rates related to the secured overnight financing rate respectively. The final interactive dashboard allows you to see correlations across these metrics and allows you to generate your own correlation matrices with the key indicators of your choice:
+
+https://deploy-new-order-3.onrender.com
+https://deploy-inventories.onrender.com
+https://deploy-interest.onrender.com
+
+https://deploy-interactive-correlation.onrender.com
 
 ## How Inventories and New Orders Work 
 This is the hierarchy for both Inventories and New Orders in terms of the subcomponents and how the graphing works (Both dashboards work the same way):
