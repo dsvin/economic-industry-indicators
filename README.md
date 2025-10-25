@@ -31,6 +31,8 @@ Together, these indicators help businesses and analysts anticipate risks and opp
 - FRED API/json for economic data  
 ## Essentials_methods_variables.py
 This is simply a local python package I made for data cleaning and graphing methods along with several other variables designed to make building dashboards from FRED more streamlined. 
+## data-tickers
+These are CSV files that have all the codes for each of the indicators, it is not the data itself. These codes are then used to access the data for the indactors from the FRED API for further manipulation. 
 ## Repo Structure
 project-root/
 │── data-tickers/ # CSV files of data tickers which are then used to extract data from FredAPI (Inventories, New Orders, Interest)
