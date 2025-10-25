@@ -51,7 +51,9 @@ There is no need to clone the repo since I have deployed the programs onto Rende
 The first three interactive dashboards plot New Orders, Inventories, and Interest rates related to the secured overnight financing rate respectively. The final interactive dashboard allows you to see correlations across these metrics and allows you to generate your own correlation matrices with the key indicators of your choice:
 
 https://deploy-new-order-3.onrender.com
+
 https://deploy-inventories.onrender.com
+
 https://deploy-interest.onrender.com
 
 https://deploy-interactive-correlation.onrender.com
